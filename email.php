@@ -6,7 +6,7 @@ require_once "header.php";
 
 
 //Include Required Files - Need Autoloader
-require_once 'PHPMailer/PHPMailerAutoload.php';
+//require_once 'PHPMailer/PHPMailerAutoload.php';
 
 
 use PHPMailer\PHPMailer\PHPMailer;
@@ -27,10 +27,11 @@ $mail->SMTPAuth = true;
 
 //Username to use for SMTP authentication - use full email address for gmail
 //***** SPECIAL NOTE - DO NOT CHANGE FOR THIS CLASS *****
-$mail->Username = 'midwayfireforms@gmail.com';  //'ccucsciweb@gmail.com';
+$mail->Username = 'ccucsciweb@gmail.com';
 
 //Password to use for SMTP authentication
-$mail->Password = 'MailFireProject#20239';
+//***** SPECIAL NOTE - DO NOT CHANGE FOR THIS CLASS *****
+$mail->Password = 'csci303&409';
 
 //Set the encryption
 $mail->SMTPSecure = 'ssl';

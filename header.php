@@ -12,6 +12,7 @@ $currentfile = basename($_SERVER['SCRIPT_FILENAME']);
 require_once "connect.php";
 require_once "functions.php";
 
+
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +27,9 @@ require_once "functions.php";
 <body>
 
 <header>
-    <h1>Midway Fire</h1>
+    <img src="https://static.wixstatic.com/media/6af838_402426041bb236728860827d9b99bef3.png/v1/fill/w_181,h_199,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/6af838_402426041bb236728860827d9b99bef3.png"
+         align="left" alt="Logo" width="40" height="40">
+    <h1>Midway Fire Form</h1>
     <nav><?php
         echo ($currentfile == "index.php") ? "Home" : "<a href='index.php'>Home</a>";
 

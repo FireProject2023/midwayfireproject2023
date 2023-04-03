@@ -2,7 +2,7 @@
 <project version="4">
   <component name="SshConfigs">
     <configs>
-      <sshConfig authType="PASSWORD" host="ccuresearch.coastal.edu" id="112be7c9-427a-4af6-8ccf-58eb594ce87b" port="8822" nameFormat="DESCRIPTIVE" username="easexton" useOpenSSHConfig="true" />
+      <sshConfig authType="PASSWORD" host="ccuresearch.coastal.edu" id="112be7c9-427a-4af6-8ccf-58eb594ce87b" port="8822" nameFormat="DESCRIPTIVE" username="chdotson" />
     </configs>
   </component>
 </project>
