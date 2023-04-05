@@ -6,7 +6,7 @@
       <paths name="ccuresearch.coastal.edu">
         <serverdata>
           <mappings>
-            <mapping deploy="csci495sp23" local="$PROJECT_DIR$" web="/csci495sp23" />
+            <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>
