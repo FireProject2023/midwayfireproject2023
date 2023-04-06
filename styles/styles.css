@@ -1,0 +1,113 @@
+.success {
+    color: green;
+}
+
+.error {
+    color: red;
+}
+
+
+
+h1 {color: #2f99cd;}
+
+h2 {color: #cd9a00;}
+
+h3 {color: #041a4a;}
+
+
+/*Code referenced from w3 schools https://www.w3schools.com/css/*/
+
+h1 {color: #041a4a;}
+h2 {color: #041a4a;}
+body {background-color: #E0DCD3;
+    font-family: "Lucida Console", "Courier New", monospace;}
+p {color: #041a4a;}
+
+
+label {
+    color: #041a4a;
+}
+
+.success {
+    color: green;
+}
+
+.error {
+    color: red;
+}
+
+
+.title {
+    background-color: #2f99cd;
+}
+
+nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #041a4a;
+    color: white;
+}
+
+nav a {
+    display: inline-block;
+    color: white;
+    text-align: left;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    background-color: #2f99cd;
+}
+
+
+input[type=text] {
+    border: none;
+    border-bottom: 2px solid #2f99cd;
+    background-color: #E0DCD3;
+}
+input[type=email] {
+    border: none;
+    border-bottom: 2px solid #2f99cd;
+    background-color: #E0DCD3;
+}
+input[type=url] {
+    border: none;
+    border-bottom: 2px solid #2f99cd;
+    background-color: #E0DCD3;
+}
+
+input[type=password] {
+    border: none;
+    border-bottom: 2px solid #2f99cd;
+    background-color: #E0DCD3;
+}
+input[type=submit] {
+    background-color: #2f99cd;
+    color: #041a4a;
+}
+table {
+    border: 1px solid #041a4a;
+}
+td, th {
+    border-bottom: 1px solid #041a4a;
+    padding: 7px;
+}
+
+.name th {
+    background-color: #041a4a;
+    color: #2f99cd;
+}
+
+.masterlist tr:hover {
+    background-color: #ABC3C9;
+}
+
+footer {
+    background-color: #2f99cd;
+    color: #041a4a;
+}
+
+
