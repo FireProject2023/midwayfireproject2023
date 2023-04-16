@@ -1,12 +1,7 @@
-.success {
-    color: green;
-}
-
-.error {
-    color: red;
-}
+/*Code referenced from w3 schools https://www.w3schools.com/css/*/
 
 
+/* HEADER */
 
 h1 {color: #2f99cd;}
 
@@ -14,13 +9,17 @@ h2 {color: #cd9a00;}
 
 h3 {color: #041a4a;}
 
+.headimg {
+    width: 100%;
+    height: auto;
+    z-index: 0;
+}
 
-/*Code referenced from w3 schools https://www.w3schools.com/css/*/
+body {
+    background-color: #E0DCD3;
+    font-family: "Helvetica", "Arial", sans-serif;
+}
 
-h1 {color: #041a4a;}
-h2 {color: #041a4a;}
-body {background-color: #E0DCD3;
-    font-family: "Lucida Console", "Courier New", monospace;}
 p {color: #041a4a;}
 
 
@@ -41,21 +40,25 @@ label {
     background-color: #2f99cd;
 }
 
+/* NAV BAR */
+
 nav {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
+    width: 100%;
     background-color: #041a4a;
-    color: white;
+    overflow: auto;
+    margin: 0;
+    top: 0;
+    border: #2f99cd;
 }
 
 nav a {
-    display: inline-block;
-    color: white;
-    text-align: left;
-    padding: 14px 16px;
+    float: left;
+    display: block;
+    text-align: center;
+    padding: 1% 3%;
+    color: #E0DCD3;
     text-decoration: none;
+    font-weight: bold;
 }
 
 nav a:hover {
@@ -108,6 +111,7 @@ td, th {
 footer {
     background-color: #2f99cd;
     color: #041a4a;
+    padding: 10px 5px 10px 5px;
 }
 
 
