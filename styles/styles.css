@@ -1,12 +1,7 @@
-.success {
-    color: green;
-}
-
-.error {
-    color: red;
-}
+/*Code referenced from w3 schools https://www.w3schools.com/css/*/
 
 
+/* HEADER */
 
 h1 {color: #2f99cd;}
 
@@ -14,13 +9,17 @@ h2 {color: #cd9a00;}
 
 h3 {color: #041a4a;}
 
+.headimg {
+    width: 100%;
+    height: auto;
+    z-index: 0;
+}
 
-/*Code referenced from w3 schools https://www.w3schools.com/css/*/
+body {
+    background-color: #E0DCD3;
+    font-family: "Helvetica", "Arial", sans-serif;
+}
 
-h1 {color: #041a4a;}
-h2 {color: #041a4a;}
-body {background-color: #E0DCD3;
-    font-family: "Lucida Console", "Courier New", monospace;}
 p {color: #041a4a;}
 
 
@@ -41,26 +40,39 @@ label {
     background-color: #2f99cd;
 }
 
+/* NAV BAR */
+
 nav {
+    width: 100%;
     list-style-type: none;
     margin: 0;
     padding: 0;
-    overflow: hidden;
+    overflow: auto;
     background-color: #041a4a;
     color: white;
 }
 
 nav a {
-    display: inline-block;
+    float: left;
+    display: block;
     color: white;
     text-align: left;
-    padding: 14px 16px;
+    font-size: 15px;
+    padding: 1.5% 3%;
     text-decoration: none;
+    font-family: "Helvetica", "Arial", sans-serif;
 }
 
 nav a:hover {
     background-color: #2f99cd;
 }
+.login {
+    float: right;
+    display: block;
+    padding: 1.5% 3%;
+}
+
+
 
 
 input[type=text] {

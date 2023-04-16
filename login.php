@@ -1,11 +1,6 @@
 <?php
 
-/**
- * Class: csci303fa21
- * User: easexton
- * Date: 11/17/21
- * Time: 10:13 AM
- */
+
 $pagename = "Log In";
 require_once "header.php";
 $currentfile = "login.php";
@@ -60,6 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
             $showform = 0;
             $_SESSION['ID'] = $row['ID'];
             $_SESSION['fname'] = $row['fname'];
+            $_SESSION['lname'] = $row['lname'];
             $_SESSION['eml'] = $row['eml'];
             $_SESSION['pwd'] = $row['pwd'];
             $_SESSION['status'] = $row['status'];

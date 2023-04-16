@@ -23,7 +23,7 @@ function checkLogin()
 //check if user is an admin
 function checkAdmin()
 {
-    if (isset($_SESSION['status']) && $_SESSION['status'] != 1 || !isset($_SESSION['status'])) {
+    if ($_SESSION['status'] == 2 || !isset($_SESSION['status'])) {
         echo "<p class='error'>This page is restricted. Access is available to admins only.</p>";
         require_once "footer.php";
         exit();
