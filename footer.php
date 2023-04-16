@@ -4,7 +4,11 @@
 <br>
 <footer>
 
-    <?php echo date("F j, Y");?>
+    <p>
+        <i> Midway Fire and Rescue: </i>
+
+         <?php echo date("F j, Y");?>
+    </p>
 
 </footer>
 </body>

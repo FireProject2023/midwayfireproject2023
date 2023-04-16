@@ -17,3 +17,8 @@ $currentfile = "index.php";
 
     Pellentesque molestie finibus leo, at cursus ex vulputate at. Sed porttitor volutpat tortor, eget dignissim erat bibendum non. Aenean urna risus, mattis blandit finibus non, bibendum in ipsum. Aliquam at maximus nibh. Aliquam ac neque posuere, elementum nisl at, placerat urna. Sed rutrum ultricies nisl, ac maximus dolor. Quisque eget tellus eu quam venenatis accumsan. Vestibulum lobortis tempor mi quis malesuada. Praesent id justo aliquam, posuere erat sit amet, auctor dui. Quisque faucibus, metus ac dignissim tempus, risus ex auctor lectus, in convallis nisl sem eget sem. Suspendisse venenatis dictum libero eget imperdiet. Donec tempor iaculis nunc, nec ornare turpis posuere vel. Mauris tristique dui eget aliquet tincidunt. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed vulputate, sem bibendum aliquam iaculis, lorem arcu blandit tellus, a fermentum sem dolor feugiat elit.
 </p>
+
+
+<?php
+require_once "footer.php";
+?>
