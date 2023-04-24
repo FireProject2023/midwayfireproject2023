@@ -8,9 +8,10 @@ $currentfile = "index.php";
 //IF USER IS NOT LOGGED IN
 if(!isset($_SESSION['ID'])) { ?>
     <div class="center">
-        <div class="section">
-            <h2>Welcome! Please log in.</h2>
-            <br>
+        <div class="section1">
+            <h1>Welcome!</h1>
+            <h1>Please log in to view content.</h1>
+            <br><br>
             <a class="loginbutton" href='login.php'>Log In</a>
         </div>
     </div>
