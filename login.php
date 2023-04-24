@@ -76,17 +76,20 @@ if ($showform == 1) {
     <p>Please enter your email and password to log in. All fields are required.</p>
 
     <form name="login" id="login" method="post" action="<?php echo $currentfile; ?>">
-        <label for="eml">Email:</label>
+        <label for="eml">Email</label> <br>
         <input type="email" name="eml" id="eml" placeholder="Email Address" maxlength="255" value="<?php if (isset($eml)) {echo $eml;}?>">
         <?php if (!empty($erreml)) {echo "<span class ='error'>$erreml</span>"; } ?>
-        <br>
-        <label for="pwd">Password:</label> <input type="password" name="pwd" id="pwd" placeholder="Password (8+ characters)" maxlength="255" >
+        <br><br>
+        <label for="pwd">Password</label> <br>
+        <input type="password" name="pwd" id="pwd" placeholder="Password (8+ characters)" maxlength="255" >
         <?php if (!empty($errpwd)) {echo "<span class ='error'>$errpwd</span>"; } ?>
         <br>
 
-        <br><label for="submit">Submit:</label><input type="submit" name="submit" id="submit" value="Log In">
+        <br><input type="submit" name="submit" id="submit" value="Log In">
 
     </form>
+
+    <h3>Don't have an account?</h3> <a class="link" href='signup.php'>Request an account</a>
 
     <?php
 }//close showform

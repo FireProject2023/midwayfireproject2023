@@ -3,9 +3,6 @@ $pagename = "Manage Employees";
 require_once "header.php";
 $currentfile = "memberlist.php";
 
-//check if user is an admin
-checkAdmin();
-
 //Sorting options
 if (isset($_GET['q'])) {
     switch ($_GET['q']){
@@ -30,8 +27,9 @@ $stmt->execute();
 $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
-
-    <table>
+<div class="columnleft">
+<div class="section">
+    <table id="members">
         <tr><th>First Name <a href="<?php echo $currentfile; ?>?q=fa">&#x219F;</a> <a href="<?php echo $currentfile; ?>?q=fd">&#x21A1;</a>
             </th><th>Email</th><th>Options</th></tr>
         <form name="approvemembers" id="approvemembers" method="post" action="<?php echo $currentfile; ?>">
@@ -41,11 +39,10 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         foreach ($result as $row){
             ?>
             <tr>
-                <td><?php echo $row['fname'];?></td>
-                <td><?php echo $row['lname'];?></td>
+                <td><?php echo $row['fname']; echo $row['lname'];?></td>
                 <td><?php echo $row['eml'];?></td>
                 <td>
-                    <?php if ($_SESSION['ID'] == $row['id'] || $_SESSION['status'] == 1) {?>
+                    <?php if ($_SESSION['ID'] == $row['id'] || $_SESSION['status'] == 2) {?>
                         <a href="update.php?q=<?php echo $row['id'];?>">Update</a>
                         <a href="changepwd.php?q=<?php echo $row['id'];?>">Change Password</a>
                     <?php } ?>
@@ -55,10 +52,16 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <?php
         }//foreach
         ?>
-            <label for="submit">Submit:</label><input type="submit" name="submit" id="submit" value="submit">
+
         </form>
     </table>
+</div></div>
 
+<div class="columnright">
+    <div class="section">
+        <h2>Insert info here! Maybe: # of inspections completed in year, weather?</h2>
+    </div>
+</div>
 <?php
 require_once "footer.php";
 ?>

@@ -3,6 +3,7 @@
 </main>
 <br>
 <footer>
+    <br>
 
     <p>
         <i> Midway Fire and Rescue: </i>
