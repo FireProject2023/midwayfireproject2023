@@ -72,8 +72,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
 
 if ($showform == 1) {
     ?>
-
-    <p>Please enter your email and password to log in. All fields are required.</p>
+<div class="columnleft">
+    <h2>Please enter your email and password to log in. All fields are required.</h2><br>
 
     <form name="login" id="login" method="post" action="<?php echo $currentfile; ?>">
         <label for="eml">Email</label> <br>
@@ -90,7 +90,7 @@ if ($showform == 1) {
     </form>
 
     <h3>Don't have an account?</h3> <a class="link" href='signup.php'>Request an account</a>
-
+</div>
     <?php
 }//close showform
 require_once "footer.php";

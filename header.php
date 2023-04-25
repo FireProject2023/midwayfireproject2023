@@ -48,5 +48,5 @@ require_once "functions.php";
         <?php } ?>
     </nav>
 </header>
-<main>
+<main> <div class="mainpage">
     <h2><?php echo $pagename; ?></h2>

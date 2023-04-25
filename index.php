@@ -12,7 +12,7 @@ if(!isset($_SESSION['ID'])) { ?>
             <h1>Welcome!</h1>
             <h1>Please log in to view content.</h1>
             <br><br>
-            <a class="loginbutton" href='login.php'>Log In</a>
+            <a class="button" href='login.php'>Log In</a>
         </div>
     </div>
 
@@ -24,7 +24,9 @@ else { ?>
 
     <div class="columnleft">
         <div class="section">
-            <h2>Insert info here!</h2>
+            <h2>Welcome</h2> <br>
+            <a class="button" href='formstart.php'>Begin Inspection</a> <br><br><br><br>
+            <a class="button" href='search.php'>Search Past Inspections</a>
         </div>
     </div>
 

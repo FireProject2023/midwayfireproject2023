@@ -1,6 +1,7 @@
 /*Code referenced from w3 schools https://www.w3schools.com/css/*/
 
 
+
 /* HEADER */
 
 h1 {color: #2f99cd;}
@@ -17,16 +18,15 @@ h3 {color: #041a4a;}
 
 /* BODY */
 
-
 body {
     background-color: #E0DCD3;
     font-family: "Helvetica", "Arial", sans-serif;
-
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
-
 p {color: #041a4a;}
-
 
 label {
     color: #041a4a;
@@ -38,11 +38,6 @@ label {
 
 .error {
     color: red;
-}
-
-
-.title {
-    background-color: #2f99cd;
 }
 
 /* NAV BAR */
@@ -79,10 +74,10 @@ nav a:hover {
     text-decoration: none;
 }
 
-.loginbutton {
+.button {
     background-color: #041a4a;
     color: #E0DCD3;
-    padding: 30px 50px;
+    padding: 1rem;
     text-align: center;
     font-size: large;
     text-decoration: none;
@@ -92,6 +87,7 @@ nav a:hover {
 .link {
     color: #041a4a;
 }
+
 a:visited {
     text-decoration: none;
 }
@@ -111,6 +107,7 @@ img {
 .columnleft {
     float: left;
     width: 65%;
+    height: 500px;
     padding-left: 15px;
 
 }
@@ -118,13 +115,13 @@ img {
 .columnright {
     float: right;
     width: 30%;
+    height: 500px;
     padding-left: 15px;
     padding-right: 15px;
-    background: #cd9a00;
-    color: white;
+    background: white;
+    color: #041a4a;
 
 }
-
 
 input[type=text]{
     width: 50%;
@@ -152,7 +149,6 @@ input[type=password] {
     margin: 1px 5px;
 }
 
-
 #members {
     width: 100%;
     border-collapse: collapse;
@@ -169,21 +165,10 @@ input[type=password] {
     background-color: grey;
 }
 
-.divCOT {
-    display: none;
-}
-
-textarea {
-    width: 90%;
-}
-
-table,td,th {
-    border: 1px solid #041a4a;
-}
-
-#category {
-    width: 60%;
-}
+.divCOT {display: none;}
+textarea {width: 90%;}
+table,td,th {border: 1px solid #041a4a;}
+#category {width: 60%;}
 
 #yesNo {
     align-content: center;
@@ -200,21 +185,26 @@ table,td,th {
     padding-left: 15px;
     padding-right: 15px;
     padding-top: 80px;
-
 }
 
+.mainpage {
+    position: relative;
+    padding-bottom: 2rem;
+}
 
-
-
-/*
 footer {
+
     background-color: #2f99cd;
     color: #041a4a;
-    padding: 20px;
-    margin-top: 20px;
+    padding: 15px;
     text-align: center;
-    position: relative;
-    width: 100%;
+    width: 98%;
+    /*   margin-top: 20px;
+
+       position: absolute;
+       height: 2rem; */
+    margin-top:auto;
+
 }
 
 
