@@ -6,12 +6,13 @@ $currentfile = "cot.php";
 //check if user is logged in
 checkLogin();
 
-//initial variables
+//initial variabless
 $showform = 1;
 $errexists = "";
 
 //form processing
-if ($_SERVER['REQUEST_METHOD'] == "POST") {
+if ($showform ==0 ) {
+//if ($_SERVER['REQUEST_METHOD'] == "POST") {
     //local variables & sanitization
 
     //Error checking & validation
@@ -42,10 +43,12 @@ if ($showform == 1) {
 ?>
 <p>Please enter the following information. All fields are required unless otherwise stated.</p>
 <form name="cot" id="cot" method="post" action="<?php echo $currentfile; ?>" enctype="multipart/form-data">
+
     <label for="">Address</label>
 
     <p>Please select the Inspection Type(s):</p>
-        <input type="checkbox" id="COTen" name="inspect_type" value="Change_of_Tenant">
+    <button onclick="showCOT()">Change of Tenant</button>
+        <input type="checkbox" id="COTen" name="inspect_type" value="Change_of_Tenant" onclick="showCOT()">
         <label for="COTen">Change of Tenant</label><br>
         <input type="checkbox" id="commercial" name="inspect_type" value="Commercial">
         <label for="commercial">Commercial</label><br>
@@ -55,8 +58,8 @@ if ($showform == 1) {
         <label for="res">Residential</label><br>
         <input type="checkbox" id="smokeAlarm" name="inspect_type" value="Smoke_Alarm">
         <label for="smokeAlarm">Smoke Alarm</label><br>
-
-<div class="divCOT">
+    <script src="/javascript/script.js"></script>
+<div id="divCOT">
     <p>Change of tenant (No construction work | Fire Inspection Required)</p>
         <input type="checkbox" id="fireInspect" name="fireInspect" value="Fire_Inspect_Complete">
         <label for="fireInspect">Required Fire Inspection Complete for Certificate of Occupancy</label><br>
@@ -131,7 +134,8 @@ if ($showform == 1) {
     <label for="id">Words</label><br>
 </div>
 
-    <label for="">Additional Notes & Comments</label>
+    <label for="addNotes">Additional Notes/Comments:</label> <br>
+    <textarea id="addNotes" name="addNotes" rows="5"></textarea>
 
     <label for="">Inspector</label>
 

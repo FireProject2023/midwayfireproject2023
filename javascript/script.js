@@ -1,13 +1,10 @@
-
-
-const divCOT = document.getElementById("divCOT");
-document.getElementById("COTen").addEventListener("change", showCOT);
 function showCOT() {
+    const divCOT = document.getElementById("divCOT");
     if (divCOT.style.display = "none") {divCOT.style.display = "block";}
     else {divCOT.style.display = "none";}
 };//close showCOT
 
-
+/*
 //SIGNATURE PAD - Referenced from https://dev.to/stackfindover/how-to-create-signature-pad-in-html-signature-pad-javascript-3866
 var canvas = document.getElementById("signature-pad");
 
@@ -27,3 +24,5 @@ var signaturePad = new SignaturePad(canvas, {
 document.getElementById("clear").addEventListener('click', function(){
     signaturePad.clear();
 })
+
+ */

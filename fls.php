@@ -385,30 +385,32 @@ if ($showform == 1) { ?>
 
     </table>
 
+    <br>
+    <h3>Inspection Results</h3>
+
     <input type="checkbox" id="ch1" name="noFLSHazard" value="noFLSHazard">
-    <label for="ch1">No FLS Hazards were identified.</label>
+    <label for="ch1">No FLS Hazards were identified.</label><br>
     <input type="checkbox" id="ch2" name="fixedFLSHazard" value="fixedFLSHazard">
-    <label for="ch2">All FLS Hazards identified were corrected</label>
+    <label for="ch2">All FLS Hazards identified were corrected</label><br>
 
     <input type="checkbox" id="ch3" name="hazardIdentified" value="hazardIdentified">
     <label for="ch3">NOTICE OF VIOLATION(S): FLS hazards were identified, a follow-up inspection is required. The owner, agent, or party in control of the occupancy may appeal this order within 30 days to the Building Code Board of Appeals.</label>
-
+    <br>
     <label for="fuiDate">Follow-Up Inspection Date:</label>
-    <textarea id="fuiDate" name="fuiDate" rows="1"></textarea>
+    <input type="text" id="fuiDate" name="fuiDate" rows="1">
     <p>Follow-Up Occurrence:</p>
     <input type="radio" id="fui2" name="fuInspect2" value="2nd_FollowUp">
     <label for="fui2">Second: $25</label>
     <input type="radio" id="fui3" name="fuInspect3" value="3rd_FollowUp">
     <label for="fui3">Third: $50</label>
     <input type="radio" id="fui4" name="fuInspect4" value="4th_FollowUp">
-    <label for="fui4">Fourth: $25</label>
+    <label for="fui4">Fourth: $100</label>
 
     <p>Inspection complete by: </p>
-    AUTO FILL PERSONS NAME & DATE
-
-    <label for="propertyRep">Property Representative Name:</label> <br>
+    <input type="text" name="propertyRep" id="propertyRep" maxlength="100" > <br>
+    <label for="propertyRep">Property Representative Name: </label>
     <input type="text" name="propertyRep" id="propertyRep" maxlength="100" >
-    <canvas id="signature-pad" width="400" height="200"></canvas>
+    <canvas id="signature-pad"></canvas>
 
 </form>
 <?php
