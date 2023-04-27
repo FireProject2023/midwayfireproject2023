@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 //If the form has not been submitted, display the form.
 if ($showform == 1) { ?>
 
-<form>
+<form class="flsForm">
 /* display business info here */
     <h3>ACCESS/EGRESS/EXITS</h3>
     <table id="accessEgress">
@@ -409,10 +409,33 @@ if ($showform == 1) { ?>
     <p>Inspection complete by: </p>
     <input type="text" name="propertyRep" id="propertyRep" maxlength="100" > <br>
     <label for="propertyRep">Property Representative Name: </label>
-    <input type="text" name="propertyRep" id="propertyRep" maxlength="100" >
-    <canvas id="signature-pad"></canvas>
+    <input type="text" name="propertyRep" id="propertyRep" maxlength="100" > <br>
+    <label for="signature-pad-propRep">Property Representative Signature: </label> <br>
+
+
+    <div id="signature-pad" class="signature-pad">
+        <div class="signature-pad--body">
+            <canvas></canvas>
+        </div>
+        <div class="signature-pad--footer">
+            <div class="description">Sign above</div>
+
+            <div class="signature-pad--actions">
+                <div>
+                    <button type="button" class="button clear" data-action="clear">Clear</button>
+                    <button type="button" class="button" data-action="change-color">Change color</button>
+                    <button type="button" class="button" data-action="undo">Undo</button>
+
+                </div>
+            </div>
+        </div>
+
 
 </form>
+
+    <script src="javascript/signature.js"></script>
+    <script src="javascript/app.js"></script>
+
 <?php
 }//close showform
 require_once "footer.php";
