@@ -406,35 +406,27 @@ if ($showform == 1) { ?>
     <input type="radio" id="fui4" name="fuInspect4" value="4th_FollowUp">
     <label for="fui4">Fourth: $100</label>
 
-    <p>Inspection complete by: </p>
-    <input type="text" name="propertyRep" id="propertyRep" maxlength="100" > <br>
+    <label for="inspectorName">Inspection Completed By: </label>
+    <input type="text" name="inspectorName" id="inspectorName" maxlength="100" > <br>
     <label for="propertyRep">Property Representative Name: </label>
     <input type="text" name="propertyRep" id="propertyRep" maxlength="100" > <br>
-    <label for="signature-pad-propRep">Property Representative Signature: </label> <br>
 
+    <label for="signature-pad">Property Representative Signature: </label>
 
-    <div id="signature-pad" class="signature-pad">
-        <div class="signature-pad--body">
-            <canvas></canvas>
-        </div>
-        <div class="signature-pad--footer">
-            <div class="description">Sign above</div>
+    <div class="wrapper">
+        <canvas id="signature-pad" class="signature-pad" width=400 height=200></canvas>
+    </div><br>
 
-            <div class="signature-pad--actions">
-                <div>
-                    <button type="button" class="button clear" data-action="clear">Clear</button>
-                    <button type="button" class="button" data-action="change-color">Change color</button>
-                    <button type="button" class="button" data-action="undo">Undo</button>
+    <button id="clear">Clear</button>
+    <br><br>
 
-                </div>
-            </div>
-        </div>
+    <label for="submit">Submit:</label>
+    <input type="submit" name="submit" id="submit" value="submit">
 
 
 </form>
-
+    <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.0.0/dist/signature_pad.umd.min.js"></script>
     <script src="javascript/signature.js"></script>
-    <script src="javascript/app.js"></script>
 
 <?php
 }//close showform

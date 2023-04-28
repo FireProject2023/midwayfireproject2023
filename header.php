@@ -22,7 +22,6 @@ require_once "functions.php";
     <link rel="stylesheet" href="styles/sigStyles.css">
 <!--  <script src="https://cdn.tiny.cloud/1/5o7mj88vhvtv3r2c5v5qo4htc088gcb5l913qx5wlrtjn81y/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
       <script>tinymce.init({ selector:'textarea' });</script> -->
-    <script src="/javascript/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.0.0/dist/signature_pad.umd.min.js"></script>
 </head>
 <body>

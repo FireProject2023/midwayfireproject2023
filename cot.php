@@ -44,10 +44,9 @@ if ($showform == 1) {
 <p>Please enter the following information. All fields are required unless otherwise stated.</p>
 <form name="cot" id="cot" method="post" action="<?php echo $currentfile; ?>" enctype="multipart/form-data">
 
-    <label for="">Address</label>
+
 
     <p>Please select the Inspection Type(s):</p>
-    <button onclick="showCOT()">Change of Tenant</button>
         <input type="checkbox" id="COTen" name="inspect_type" value="Change_of_Tenant" onclick="showCOT()">
         <label for="COTen">Change of Tenant</label><br>
         <input type="checkbox" id="commercial" name="inspect_type" value="Commercial">
@@ -58,7 +57,6 @@ if ($showform == 1) {
         <label for="res">Residential</label><br>
         <input type="checkbox" id="smokeAlarm" name="inspect_type" value="Smoke_Alarm">
         <label for="smokeAlarm">Smoke Alarm</label><br>
-    <script src="/javascript/script.js"></script>
 <div id="divCOT">
     <p>Change of tenant (No construction work | Fire Inspection Required)</p>
         <input type="checkbox" id="fireInspect" name="fireInspect" value="Fire_Inspect_Complete">
@@ -119,31 +117,45 @@ if ($showform == 1) {
     <label for="sprinkSys">Sprinkler System - Standpipe System</label>
     <br>
     <input type="checkbox" id="alarmSys" name="alarmSys" value="Alarm_System">
-    <label for="alarmSys">Alarm System</label><br>
-    <input type="checkbox" id="id" name="name" value="value">
-    <label for="id">Words</label><br>
-    <input type="checkbox" id="id" name="name" value="value">
-    <label for="id">Words</label><br>
-    <input type="checkbox" id="id" name="name" value="value">
-    <label for="id">Words</label><br>
-    <input type="checkbox" id="id" name="name" value="value">
-    <label for="id">Words</label><br>
-    <input type="checkbox" id="id" name="name" value="value">
-    <label for="id">Words</label><br>
-    <input type="checkbox" id="id" name="name" value="value">
-    <label for="id">Words</label><br>
+    <label for="alarmSys">Alarm System</label>
+    <input type="checkbox" id="exits" name="exits" value="emerg_Exit">
+    <label for="exits">Emergency Exit/Exitways</label>
+    <br>
+    <input type="checkbox" id="hoodSuppress" name="hoodSuppress" value="Hood_Suppression">
+    <label for="hoodSuppress">Hood suppression</label>
+    <input type="checkbox" id="hoodVentilation" name="hoodVentilation" value="Hood_Ventilation">
+    <label for="hoodVentilation">Hood Ventilation System Clean</label>
+    <br>
+    <input type="checkbox" id="electricPanel" name="electricPanel" value="Electric_Panel">
+    <label for="electricPanel">Electrical Panels</label>
+    <input type="checkbox" id="knoxBox" name="knoxBox" value="knox_Box">
+    <label for="knoxBox">Knox Box</label><br>
 </div>
 
     <label for="addNotes">Additional Notes/Comments:</label> <br>
     <textarea id="addNotes" name="addNotes" rows="5"></textarea>
+    <br><br><br>
 
-    <label for="">Inspector</label>
 
-    <label for="">Business Representative</label>
+    <label for="inspector">Inspector: </label>
+    <input type="text" id="inspector" name="inspector">
+    <br><br>
+    <label for="signature-pad">Business Representative Signature: </label>
+    <div class="wrapper">
+    <canvas id="signature-pad" class="signature-pad" width=400 height=200></canvas>
+    </div><br>
+
+    <button id="clear">Clear</button>
+    <br><br>
+
+    <input type="submit" name="submit" id="submit" value="Submit">
 
 
 </form>
+    <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.0.0/dist/signature_pad.umd.min.js"></script>
+    <script src="javascript/signature.js"></script>
 <?php
+
 }//close showform
     require_once "footer.php";
 ?>

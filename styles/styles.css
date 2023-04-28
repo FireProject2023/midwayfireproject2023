@@ -199,13 +199,26 @@ footer {
     padding: 15px;
     text-align: center;
     width: 98%;
-    /*   margin-top: 20px;
-
-       position: absolute;
-       height: 2rem; */
     margin-top:auto;
 
 }
 
 
 
+.wrapper {
+    position: relative;
+    width: 400px;
+    height: 200px;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: white;
+}
+.signature-pad {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width:400px;
+    height:200px;
+}
