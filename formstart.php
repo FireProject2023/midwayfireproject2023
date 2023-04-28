@@ -1,65 +1,64 @@
 <?php
-$pagename = "Form";
+
+$pagename = "Form Start";
 require_once "header.php";
 $currentfile = "formstart.php";
 
-//check if user is logged in
 checkLogin();
 
-$showform = 1;
-$erraddress = "";
-
 //form processing
-if ($_SERVER['REQUEST_METHOD'] == "POST"){
-    //LOCAL VARIABLES & SANITATION
-    $address = trim($_POST['address']);
-    //local variable & sanitization
-
-    //ERROR CHECKING & VALIDATION
-    if (empty($address)) {
-        $erraddress = "Please enter an address.";
+if(isset($_GET['submit'])) {
+    //if search box was left empty
+    if (empty($_GET['term'])) {
+        echo "<p class ='error'>Search box empty, please try again.</p>";
     } else {
-       //QUERY DATABASE FOR ADDRESS
+        //local variable & sanitization
+        $term = trim($_GET['term']) . "%";
+        //query database
+        $sql = "SELECT address, buildOwner, busOwner FROM address WHERE address LIKE :term OR buildOwner LIKE :term OR busOwner LIKE :term";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindValue(':term', $term);
+        $stmt->execute();
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        //no results
+        if(empty($result)) {
+            echo "<p class='error'>No users found matching " . htmlspecialchars($_GET['term']) . ". Please try again.</p>";
+        }//if result empty
+    }//if term empty
+}//close submit
 
 
-        //DISPLAY INFORMATION
-
-        //DISPLAY FORM OPTIONS
-    }
-
-
-
-}//close form processing
-
-if ($showform==1) {
 ?>
-<div class="columnleft">
-<div class="section">
-    <p>Welcome! Please enter the address:</p>
-    <form name="addresslookup" id="addresslookup" method="post" action="<?php echo $currentfile; ?>" enctype="multipart/form-data">
-        <input type="text" name="address" id="address" placeholder="Address" maxlength="255" value="<?php if (isset($address)) {echo htmlspecialchars($address, ENT_QUOTES, "UTF-8");}?>">
-        <?php if (!empty($erraddress)) {echo "<span class ='error'>$erraddress</span>"; } ?>
-        <br> <br>
-        <label for="submit">Submit:</label>
-        <input type="submit" name="submit" id="submit" value="submit">
+
+
+    <p>Please enter the address or name for the inspection.</p>
+    <form name="empsearch" id="empsearch" method="get" action="<?php echo $currentfile; ?>">
+        <label for="term">Search:</label><br>
+        <input type="text" id="term" name="term" placeholder="Address, Building Owner, or Business Owner"><br>
+        <input type="submit" id="submit" name="submit" value="submit">
     </form>
-</div>
-</div>
-<?php }//close showform ?>
-
-
-
-
-
-<div class="columnright">
-    <div class="section">
-        <h2>TEMP LINKS</h2>
-        <a href='cot.php'>COT FORM</a>
-        <a href='fls.php'>FLS FORM</a>
-        <a href='addaddress.php'>ADD ADDRESS</a>
-    </div>
-</div>
 
 <?php
+//print results
+if(!empty($result)) {
+    echo "<p class='success'>The following results match " . htmlspecialchars($_GET['term']) . ".</p>";
+    ?>
+
+    <table>
+        <tr><th>Address</th><th>Building Owner</th><th>Business Owner</th><th>Forms</th></tr>
+        <?php foreach ($result as $row) { ?>
+            <tr>
+                <td><?php echo $row['address'];?></td>
+                <td><?php echo $row['buildOwner'];?></td>
+                <td><?php echo $row['busOwner'];?></td>
+                <td><a href="cot.php">Change of Tenant</a> <a href="fls.php">Fire & Life Safety</a> <a href="sfi.php">Fire Investigation</a></td>
+            </tr>
+        <?php }//close foreach ?>
+    </table>
+
+    <?php
+}//foreach
+echo "<br>";
 require_once "footer.php";
 ?>
