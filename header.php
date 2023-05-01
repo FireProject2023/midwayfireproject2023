@@ -9,7 +9,7 @@ ini_set('display_errors','1');
 $currentfile = basename($_SERVER['SCRIPT_FILENAME']);
 
 //Include Files
-require_once "connect.php";
+//require_once "connect.php";
 require_once "functions.php";
 ?>
 

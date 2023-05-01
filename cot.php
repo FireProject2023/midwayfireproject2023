@@ -4,7 +4,7 @@ require_once "header.php";
 $currentfile = "cot.php";
 
 //check if user is logged in
-checkLogin();
+//checkLogin();
 
 //initial variabless
 $showform = 1;

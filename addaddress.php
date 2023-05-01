@@ -4,7 +4,7 @@ require_once "header.php";
 $currentfile = "addaddress.php";
 
 //check if user is logged in
-checkLogin();
+//checkLogin();
 
 ?>
 
