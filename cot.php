@@ -9,26 +9,81 @@ checkLogin();
 //initial variabless
 $showform = 1;
 $errexists = "";
+$errInspect = "";
+$errOccur = "";
+$errPF = "";
+$errInspector = "";
+$errBusRep = "";
+
+$addressId = 1;
+$signature = "";
 
 //form processing
-if ($showform ==0 ) {
-//if ($_SERVER['REQUEST_METHOD'] == "POST") {
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
     //local variables & sanitization
+    $typeChoice = $_POST['inspect_type'];
+    $inspectOccur = $_POST['inspectOccur'];
+    $passfail = $_POST['passfail'];
+    $reqAtt = $_POST['reqAtt'];
+    $notes = trim($_POST['addNotes']);
+    $inspector = trim($_POST['inspector']);
+    $busRep = trim($_POST['busRep']);
 
     //Error checking & validation
+    if (empty($typeChoice)) {
+        $errexists = 1;
+        $errInspect = " Missing form type selection.";
+    }
+    if (empty($inspectOccur)) {
+        $errexists = 1;
+        $errOccur = " Missing inspection occurance.";
+    }
+    if (empty($passfail)) {
+        $errexists = 1;
+        $errPF = " Missing inspection status.";
+    }
+
+    if (!empty($reqAtt)) {
+        $reqAtt = "None";
+    }
+
+    if (empty($notes)) {
+        $notes = "None";
+    }
+
+    if (empty($inspector)) {
+        $errexists = 1;
+        $errInspector = " Please enter inspector name.";
+    }
+    if (empty($busRep)) {
+        $errexists = 1;
+        $errBusRep = " Please enter business representitive name.";
+    }
+
+
 
     //General error message
     if ($errexists == 1) {
         echo "<p class='error'>There are errors.  Please make corrections and resubmit.</p>";
     } else {
         //No errors, insert into database
-        //query database
-        $sql = "";
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute();
-        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        $created = date("Y-m-d H:i:s");
 
         //insert data into database
+        $sql = "INSERT INTO formcot (idAddress, inspectType, inspectOccur, passFail, areasRequire, comments, inspector, busRep, signature, created )
+                            VALUES (:address, :inspectType, :inspectOccur, :passFail, :reqAtt,:notes, :inspector, :busRep, :signature, :created)";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindValue(':address', $addressId);
+        $stmt->bindValue(':inspectType', $typeChoice);
+        $stmt->bindValue(':inspectOccur', $inspectOccur);
+        $stmt->bindValue(':passFail', $passfail);
+        $stmt->bindValue(':reqAtt', $reqAtt);
+        $stmt->bindValue(':notes', $notes);
+        $stmt->bindValue(':inspector', $inspector);
+        $stmt->bindValue(':busRep', $busRep);
+        $stmt->bindValue(':signature', $signature);
+        $stmt->bindValue(':created', $created);
+        $stmt->execute();
 
         //success message
         echo "<p class='success'>Form successfully submitted.</p>";
@@ -45,90 +100,57 @@ if ($showform == 1) {
 <form name="cot" id="cot" method="post" action="<?php echo $currentfile; ?>" enctype="multipart/form-data">
 
 
+<div class="section">
+    <h3>Please select the Inspection Type(s):</h3>
 
-    <p>Please select the Inspection Type(s):</p>
-        <input type="checkbox" id="COTen" name="inspect_type" value="Change_of_Tenant" onclick="showCOT()">
-        <label for="COTen">Change of Tenant</label><br>
-        <input type="checkbox" id="commercial" name="inspect_type" value="Commercial">
-        <label for="commercial">Commercial</label><br>
-        <input type="checkbox" id="fps" name="inspect_type" value="Fire_Protection_System">
-        <label for="fps">Fire Protection System</label><br>
-        <input type="checkbox" id="res" name="inspect_type" value="Residential">
-        <label for="res">Residential</label><br>
-        <input type="checkbox" id="smokeAlarm" name="inspect_type" value="Smoke_Alarm">
-        <label for="smokeAlarm">Smoke Alarm</label><br>
-<div id="divCOT">
-    <p>Change of tenant (No construction work | Fire Inspection Required)</p>
-        <input type="checkbox" id="fireInspect" name="fireInspect" value="Fire_Inspect_Complete">
-        <label for="fireInspect">Required Fire Inspection Complete for Certificate of Occupancy</label><br>
-        <input type="checkbox" id="electricViolations" name="electricViolations" value="No_Electric_Violations">
-        <label for="electricViolations">No Fire Code Violations to Preclude Electrical Service</label><br>
-        <input type="checkbox" id="contactForm" name="contactForm" value="Contact_Complete">
-        <label for="contactForm">Contact Form Complete</label><br>
+        <input type="radio" id="COTen" name="inspect_type" value="Change_of_Tenant"><label for="COTen">Change of Tenant (No construction work | Fire Inspection Required)</label>
+        <input type="radio" id="commercial" name="inspect_type" value="Commercial"><label for="commercial">Commercial (Any/All construction work | Building Permit Required)</label>
+        <input type="radio" id="fps" name="inspect_type" value="Fire_Protection_System"><label for="fps">Fire Protection System</label>
+        <input type="radio" id="res" name="inspect_type" value="Residential"><label for="res">Residential</label>
+        <input type="radio" id="smokeAlarm" name="inspect_type" value="Smoke_Alarm"><label for="smokeAlarm">Smoke Alarm</label>
+        <?php if (!empty($errInspect)) {echo "<span class ='error'>$errInspect</span>"; } ?>
+
 </div>
 
-<div class="selectComm"></div>
-    <p>Commercial (Any/All construction work | Building Permit Required)</p>
-        <p>Inspection Occurrence:</p>
-        <input type="radio" id="initial" name="inspectOccur" value="Initial">
-        <label for="initial">Initial Inspection</label><br>
-        <input type="radio" id="reinspect" name="inspectOccur" value="reinspect">
-        <label for="reinspect">Re-Inspection</label><br>
+<div class="section">
+        <h3>Inspection Occurance:</h3>
+        <input type="radio" id="inspectOccurR" name="inspectOccur" value="Rough_In">
+        <label for="inspectOccurR">Rough-In</label><br>
+        <input type="radio" id="inspectOccurF" name="inspectOccur" value="Final">
+        <label for="inspectOccurF">Final</label><br>
+        <?php if (!empty($errOccur)) {echo "<span class ='error'>$errOccur</span>"; } ?>
 </div>
 
-<div class="selectConstruct">
-        <p>Construction:</p>
-        <input type="radio" id="constructRoughIn" name="constructOccur" value="Rough_In">
-        <label for="constructRoughIn">Rough-In</label><br>
-        <input type="radio" id="constructFinal" name="constructOccur" value="Final">
-        <label for="constructFinal">Final</label><br>
-</div>
-
-<div class="selectFPS">
-        <p>Fire Protection System:</p>
-        <input type="radio" id="fpsRoughIn" name="fpsOccur" value="Rough_In">
-        <label for="fpsRoughIn">Rough-In</label><br>
-        <input type="radio" id="fpsFinal" name="fpsOccur" value="Final">
-        <label for="fpsFinal">Final</label><br>
-</div>
-
-        <p>Status</p>
-        <input type="checkbox" id="contactFormStat" name="contactFormStat" value="Contact_Complete">
-        <label for="contactFormStat">Contact Form Complete</label><br>
-        <input type="checkbox" id="fireInspect" name="fireInspect" value="Fire_Inspect_Complete">
-        <label for="fireInspect">Fire Inspection Complete during Final</label><br>
-
-    <p>Select one:</p>
-    <input type="radio" id="passed" name="passed" value="passed">
+<div class="section">
+    <h3>Status:</h3>
+    <input type="radio" id="passed" name="passfail" value="passed">
     <label for="passed">PASSED - All Fire and Life Safety Code requirements for listed project complete</label><br>
-    <input type="radio" id="failed" name="failed" value="failed">
+    <input type="radio" id="failed" name="passfail" value="failed">
     <label for="failed">FAILED - The following Fire and Life Safety Code requirements for listed project incomplete. Schedule follow-up inspections allowing 72-Hour notice.</label><br>
+    <?php if (!empty($errPF)) {echo "<span class ='error'>$errPF</span>"; } ?>
+</div>
 
-<div class="failInspect">
-    <p>Areas Requiring Attention</p>
-    <input type="checkbox" id="addDis" name="addDis" value="Add_Displayed">
+<div class="section">
+    <h3>Areas Requiring Attention</h3>
+    <input type="checkbox" id="addDis" name="reqAtt[]" value="Add_Displayed">
     <label for="addDis">Address Displayed</label>
-    <input type="checkbox" id="exitLight" name="exitLight" value="Exit_Light">
+    <input type="checkbox" id="exitLight" name="reqAtt[]" value="Exit_Light">
     <label for="exitLight">Exit/Emergency Lights</label>
-    <br>
-    <input type="checkbox" id="fireExt" name="fireExt" value="Fire_Extinguisher">
+    <input type="checkbox" id="fireExt" name="reqAtt[]" value="Fire_Extinguisher">
     <label for="fireExt">Fire Extinguisher(s)</label>
-    <input type="checkbox" id="sprinkSys" name="sprinkSys" value="Sprinkler_System">
+    <input type="checkbox" id="sprinkSys" name="reqAtt[]" value="Sprinkler_System">
     <label for="sprinkSys">Sprinkler System - Standpipe System</label>
-    <br>
-    <input type="checkbox" id="alarmSys" name="alarmSys" value="Alarm_System">
+    <input type="checkbox" id="alarmSys" name="reqAtt[]" value="Alarm_System">
     <label for="alarmSys">Alarm System</label>
-    <input type="checkbox" id="exits" name="exits" value="emerg_Exit">
+    <input type="checkbox" id="exits" name="reqAtt[]" value="emerg_Exit">
     <label for="exits">Emergency Exit/Exitways</label>
-    <br>
-    <input type="checkbox" id="hoodSuppress" name="hoodSuppress" value="Hood_Suppression">
+    <input type="checkbox" id="hoodSuppress" name="reqAtt[]" value="Hood_Suppression">
     <label for="hoodSuppress">Hood suppression</label>
-    <input type="checkbox" id="hoodVentilation" name="hoodVentilation" value="Hood_Ventilation">
+    <input type="checkbox" id="hoodVentilation" name="reqAtt[]" value="Hood_Ventilation">
     <label for="hoodVentilation">Hood Ventilation System Clean</label>
-    <br>
-    <input type="checkbox" id="electricPanel" name="electricPanel" value="Electric_Panel">
+    <input type="checkbox" id="electricPanel" name="reqAtt[]" value="Electric_Panel">
     <label for="electricPanel">Electrical Panels</label>
-    <input type="checkbox" id="knoxBox" name="knoxBox" value="knox_Box">
+    <input type="checkbox" id="knoxBox" name="reqAtt[]" value="knox_Box">
     <label for="knoxBox">Knox Box</label><br>
 </div>
 
@@ -138,7 +160,11 @@ if ($showform == 1) {
 
 
     <label for="inspector">Inspector: </label>
-    <input type="text" id="inspector" name="inspector">
+    <input type="text" id="inspector" name="inspector"> <br>
+    <?php if (!empty($errInspector)) {echo "<span class ='error'>$errInspector</span>"; } ?>
+    <label for="busRep">Business Representative: </label>
+    <input type="text" id="busRep" name="busRep">
+    <?php if (!empty($errBusRep)) {echo "<span class ='error'>$errBusRep</span>"; } ?>
     <br><br>
     <label for="signature-pad">Business Representative Signature: </label>
     <div class="wrapper">

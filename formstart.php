@@ -23,7 +23,7 @@ if(isset($_GET['submit'])) {
 
         //no results
         if(empty($result)) {
-            echo "<p class='error'>No users found matching " . htmlspecialchars($_GET['term']) . ". Please try again.</p>";
+            echo "<p class='error'>Nothing found matching " . htmlspecialchars($_GET['term']) . ". Please try again.</p>";
         }//if result empty
     }//if term empty
 }//close submit
@@ -31,13 +31,15 @@ if(isset($_GET['submit'])) {
 
 ?>
 
-
+<div class="section">
     <p>Please enter the address or name for the inspection.</p>
     <form name="empsearch" id="empsearch" method="get" action="<?php echo $currentfile; ?>">
         <label for="term">Search:</label><br>
         <input type="text" id="term" name="term" placeholder="Address, Building Owner, or Business Owner"><br>
         <input type="submit" id="submit" name="submit" value="submit">
     </form>
+</div>
+
 
 <?php
 //print results
