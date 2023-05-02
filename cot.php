@@ -103,59 +103,59 @@ if ($showform == 1) {
 <div class="section">
     <h3>Please select the Inspection Type(s):</h3>
 
-        <input type="radio" id="COTen" name="inspect_type" value="Change_of_Tenant"><label for="COTen">Change of Tenant (No construction work | Fire Inspection Required)</label>
-        <input type="radio" id="commercial" name="inspect_type" value="Commercial"><label for="commercial">Commercial (Any/All construction work | Building Permit Required)</label>
-        <input type="radio" id="fps" name="inspect_type" value="Fire_Protection_System"><label for="fps">Fire Protection System</label>
-        <input type="radio" id="res" name="inspect_type" value="Residential"><label for="res">Residential</label>
-        <input type="radio" id="smokeAlarm" name="inspect_type" value="Smoke_Alarm"><label for="smokeAlarm">Smoke Alarm</label>
+        <input type="radio" id="COTen" name="inspect_type" value="Change_of_Tenant" <?php if(isset($_POST['inspect_type']) && $_POST['inspect_type'] =='Change_of_Tenant' ){echo "checked";}?> ><label for="COTen">Change of Tenant (No construction work | Fire Inspection Required)</label>
+        <input type="radio" id="commercial" name="inspect_type" value="Commercial" <?php if(isset($_POST['inspect_type']) && $_POST['inspect_type'] =='Commercial' ){echo "checked";}?>><label for="commercial" >Commercial (Any/All construction work | Building Permit Required)</label>
+        <input type="radio" id="fps" name="inspect_type" value="Fire_Protection_System" <?php if(isset($_POST['inspect_type']) && $_POST['inspect_type'] =='Fire_Protection_System' ){echo "checked";}?>><label for="fps">Fire Protection System</label>
+        <input type="radio" id="res" name="inspect_type" value="Residential <?php if(isset($_POST['inspect_type']) && $_POST['inspect_type'] =='Residential' ){echo "checked";}?>"><label for="res">Residential</label>
+        <input type="radio" id="smokeAlarm" name="inspect_type" value="Smoke_Alarm" <?php if(isset($_POST['inspect_type']) && $_POST['inspect_type'] =='Smoke_Alarm' ){echo "checked";}?>><label for="smokeAlarm">Smoke Alarm</label>
         <?php if (!empty($errInspect)) {echo "<span class ='error'>$errInspect</span>"; } ?>
 
 </div>
 
 <div class="section">
         <h3>Inspection Occurance:</h3>
-        <input type="radio" id="inspectOccurR" name="inspectOccur" value="Rough_In">
+        <input type="radio" id="inspectOccurR" name="inspectOccur" value="Rough_In" <?php if(isset($_POST['inspectOccur']) && $_POST['inspectOccur'] =='Rough_In' ){echo "checked";}?>>
         <label for="inspectOccurR">Rough-In</label><br>
-        <input type="radio" id="inspectOccurF" name="inspectOccur" value="Final">
+        <input type="radio" id="inspectOccurF" name="inspectOccur" value="Final" <?php if(isset($_POST['inspectOccur']) && $_POST['inspectOccur'] =='Final' ){echo "checked";}?>>
         <label for="inspectOccurF">Final</label><br>
         <?php if (!empty($errOccur)) {echo "<span class ='error'>$errOccur</span>"; } ?>
 </div>
 
 <div class="section">
     <h3>Status:</h3>
-    <input type="radio" id="passed" name="passfail" value="passed">
+    <input type="radio" id="passed" name="passfail" value="passed" <?php if(isset($_POST['passfail']) && $_POST['passfail'] =='passed' ){echo "checked";}?>>
     <label for="passed">PASSED - All Fire and Life Safety Code requirements for listed project complete</label><br>
-    <input type="radio" id="failed" name="passfail" value="failed">
+    <input type="radio" id="failed" name="passfail" value="failed" <?php if(isset($_POST['passfail']) && $_POST['passfail'] =='failed' ){echo "checked";}?>>
     <label for="failed">FAILED - The following Fire and Life Safety Code requirements for listed project incomplete. Schedule follow-up inspections allowing 72-Hour notice.</label><br>
     <?php if (!empty($errPF)) {echo "<span class ='error'>$errPF</span>"; } ?>
 </div>
 
 <div class="section">
     <h3>Areas Requiring Attention</h3>
-    <input type="checkbox" id="addDis" name="reqAtt[]" value="Add_Displayed">
+    <input type="checkbox" id="addDis" name="reqAtt[]" value="Add_Displayed" <?php if (in_array("Add_Displayed", $_POST['reqAtt'])) echo "checked='checked'"; ?> >
     <label for="addDis">Address Displayed</label>
-    <input type="checkbox" id="exitLight" name="reqAtt[]" value="Exit_Light">
+    <input type="checkbox" id="exitLight" name="reqAtt[]" value="Exit_Light" <?php if (in_array("Exit_Light", $_POST['reqAtt'])) echo "checked='checked'"; ?> >
     <label for="exitLight">Exit/Emergency Lights</label>
-    <input type="checkbox" id="fireExt" name="reqAtt[]" value="Fire_Extinguisher">
+    <input type="checkbox" id="fireExt" name="reqAtt[]" value="Fire_Extinguisher" <?php if (in_array("Fire_Extinguisher", $_POST['reqAtt'])) echo "checked='checked'"; ?>>
     <label for="fireExt">Fire Extinguisher(s)</label>
-    <input type="checkbox" id="sprinkSys" name="reqAtt[]" value="Sprinkler_System">
+    <input type="checkbox" id="sprinkSys" name="reqAtt[]" value="Sprinkler_System" <?php if (in_array("Sprinkler_System", $_POST['reqAtt'])) echo "checked='checked'"; ?>>
     <label for="sprinkSys">Sprinkler System - Standpipe System</label>
-    <input type="checkbox" id="alarmSys" name="reqAtt[]" value="Alarm_System">
+    <input type="checkbox" id="alarmSys" name="reqAtt[]" value="Alarm_System" <?php if (in_array("Alarm_System", $_POST['reqAtt'])) echo "checked='checked'"; ?>>
     <label for="alarmSys">Alarm System</label>
-    <input type="checkbox" id="exits" name="reqAtt[]" value="emerg_Exit">
+    <input type="checkbox" id="exits" name="reqAtt[]" value="emerg_Exit" <?php if (in_array("emerg_Exit", $_POST['reqAtt'])) echo "checked='checked'"; ?>>
     <label for="exits">Emergency Exit/Exitways</label>
-    <input type="checkbox" id="hoodSuppress" name="reqAtt[]" value="Hood_Suppression">
+    <input type="checkbox" id="hoodSuppress" name="reqAtt[]" value="Hood_Suppression" <?php if (in_array("Hood_Suppression", $_POST['reqAtt'])) echo "checked='checked'"; ?>>
     <label for="hoodSuppress">Hood suppression</label>
-    <input type="checkbox" id="hoodVentilation" name="reqAtt[]" value="Hood_Ventilation">
+    <input type="checkbox" id="hoodVentilation" name="reqAtt[]" value="Hood_Ventilation"<?php if (in_array("Hood_Ventilation", $_POST['reqAtt'])) echo "checked='checked'"; ?>>
     <label for="hoodVentilation">Hood Ventilation System Clean</label>
-    <input type="checkbox" id="electricPanel" name="reqAtt[]" value="Electric_Panel">
+    <input type="checkbox" id="electricPanel" name="reqAtt[]" value="Electric_Panel" <?php if (in_array("Electric_Panel", $_POST['reqAtt'])) echo "checked='checked'"; ?>>
     <label for="electricPanel">Electrical Panels</label>
-    <input type="checkbox" id="knoxBox" name="reqAtt[]" value="knox_Box">
+    <input type="checkbox" id="knoxBox" name="reqAtt[]" value="knox_Box" <?php if (in_array("knox_Box", $_POST['reqAtt'])) echo "checked='checked'"; ?>
     <label for="knoxBox">Knox Box</label><br>
 </div>
 
     <label for="addNotes">Additional Notes/Comments:</label> <br>
-    <textarea id="addNotes" name="addNotes" rows="5"></textarea>
+    <textarea id="addNotes" name="addNotes" rows="5"><?php if (isset($notes)) {echo $notes;}?></textarea>
     <br><br><br>
 
 
