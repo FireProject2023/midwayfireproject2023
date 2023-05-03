@@ -15,7 +15,7 @@ if(isset($_GET['submit'])) {
         //local variable & sanitization
         $term = trim($_GET['term']) . "%";
         //query database
-        $sql = "SELECT address, buildOwner, busOwner FROM address WHERE address LIKE :term OR buildOwner LIKE :term OR busOwner LIKE :term";
+        $sql = "SELECT id, address, buildOwner, busOwner FROM address WHERE address LIKE :term OR buildOwner LIKE :term OR busOwner LIKE :term";
         $stmt = $pdo->prepare($sql);
         $stmt->bindValue(':term', $term);
         $stmt->execute();
@@ -54,11 +54,11 @@ if(!empty($result)) {
                 <td><?php echo $row['address'];?></td>
                 <td><?php echo $row['buildOwner'];?></td>
                 <td><?php echo $row['busOwner'];?></td>
-                <td><a href="cot.php">Change of Tenant</a> <a href="fls.php">Fire & Life Safety</a> <a href="sfi.php">Fire Investigation</a></td>
+                <td><a href="cot.php?q=<?php echo $row['id'];?>">Change of Tenant</a> <a href="fls.php?q=<?php echo $row['id'];?>">Fire & Life Safety</a></td>
             </tr>
         <?php }//close foreach ?>
     </table>
-
+    <a href="view.php?q=<?php echo $row['id'];?>">View Reviews</a>
     <?php
 }//foreach
 echo "<br>";

@@ -6,6 +6,10 @@ $currentfile = "cot.php";
 //check if user is logged in
 checkLogin();
 
+if ($_SERVER['REQUEST_METHOD'] == "GET") {
+    $_SESSION['idAddress'] = $_GET['q'];
+}
+
 //initial variabless
 $showform = 1;
 $errexists = "";
@@ -14,9 +18,9 @@ $errOccur = "";
 $errPF = "";
 $errInspector = "";
 $errBusRep = "";
-
-$addressId = 1;
+$reqAtt = " ";
 $signature = "";
+$idAddress = $_SESSION['idAddress'];
 
 //form processing
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
@@ -43,8 +47,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $errPF = " Missing inspection status.";
     }
 
-    if (!empty($reqAtt)) {
-        $reqAtt = "None";
+    if (empty($reqAtt)) {
+        $requireAtt = "None";
+    } else {
+        $requireAtt = implode(" ", $reqAtt);
     }
 
     if (empty($notes)) {
@@ -73,11 +79,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $sql = "INSERT INTO formcot (idAddress, inspectType, inspectOccur, passFail, areasRequire, comments, inspector, busRep, signature, created )
                             VALUES (:address, :inspectType, :inspectOccur, :passFail, :reqAtt,:notes, :inspector, :busRep, :signature, :created)";
         $stmt = $pdo->prepare($sql);
-        $stmt->bindValue(':address', $addressId);
+        $stmt->bindValue(':address', $idAddress);
         $stmt->bindValue(':inspectType', $typeChoice);
         $stmt->bindValue(':inspectOccur', $inspectOccur);
         $stmt->bindValue(':passFail', $passfail);
-        $stmt->bindValue(':reqAtt', $reqAtt);
+        $stmt->bindValue(':reqAtt', $requireAtt);
         $stmt->bindValue(':notes', $notes);
         $stmt->bindValue(':inspector', $inspector);
         $stmt->bindValue(':busRep', $busRep);
@@ -132,7 +138,7 @@ if ($showform == 1) {
 
 <div class="section">
     <h3>Areas Requiring Attention</h3>
-    <input type="checkbox" id="addDis" name="reqAtt[]" value="Add_Displayed" <?php if (in_array("Add_Displayed", $_POST['reqAtt'])) echo "checked='checked'"; ?> >
+    <input type="checkbox" id="addDis" name="reqAtt[]" value="Add_Displayed" <?php if (in_array("Add_Displayed", $_POST['reqAtt'])) echo "checked"; ?> >
     <label for="addDis">Address Displayed</label>
     <input type="checkbox" id="exitLight" name="reqAtt[]" value="Exit_Light" <?php if (in_array("Exit_Light", $_POST['reqAtt'])) echo "checked='checked'"; ?> >
     <label for="exitLight">Exit/Emergency Lights</label>
@@ -160,10 +166,10 @@ if ($showform == 1) {
 
 
     <label for="inspector">Inspector: </label>
-    <input type="text" id="inspector" name="inspector"> <br>
+    <input type="text" id="inspector" name="inspector" value="<?php if (isset($inspector)) {echo htmlspecialchars($inspector, ENT_QUOTES, "UTF-8");}?>> <br>
     <?php if (!empty($errInspector)) {echo "<span class ='error'>$errInspector</span>"; } ?>
     <label for="busRep">Business Representative: </label>
-    <input type="text" id="busRep" name="busRep">
+    <input type="text" id="busRep" name="busRep" value="<?php if (isset($busRep)) {echo htmlspecialchars($busRep, ENT_QUOTES, "UTF-8");}?>>
     <?php if (!empty($errBusRep)) {echo "<span class ='error'>$errBusRep</span>"; } ?>
     <br><br>
     <label for="signature-pad">Business Representative Signature: </label>
