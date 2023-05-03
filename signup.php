@@ -83,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
      //   require_once '../includes/phpmailer.php';
 
         //Success message
-        echo "<p class='success'>You have successfully signed up for this website, thank you for your time!</p>";
+        echo "<p class='success'>Your account request has been submitted, your account must be approved before logging in.</p>";
         //hide form
         $showform = 0;
     }//else control code

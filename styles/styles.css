@@ -48,11 +48,11 @@ nav a {
 }
 
 nav a:hover {
-    color: #007bff;
+    color: #13778e;
 }
 
 .login {
-    background-color: #007bff;
+    background-color: #13778e;
     color: #fff;
     padding: 8px 16px;
     border-radius: 4px;
@@ -62,8 +62,9 @@ nav a:hover {
 }
 
 .login:hover {
-    background-color: #0062cc;
+    background-color: cadetblue;
     cursor: pointer;
+    color: #fff;
 }
 
 /* Style the main section */
@@ -81,7 +82,7 @@ h2 {
     font-weight: bold;
     text-align: center;
     text-transform: uppercase;
-    color: #007bff;
+    color: #13778e;
 }
 
 .center {
@@ -112,7 +113,7 @@ h1 {
     font-size: 18px;
     font-weight: bold;
     color: #fff;
-    background-color: #007bff;
+    background-color: #13778e;
     border: none;
     border-radius: 5px;
     text-decoration: none;
@@ -120,7 +121,7 @@ h1 {
 }
 
 .button:hover {
-    background-color: #0062cc;
+    background-color: cadetblue;
     cursor: pointer;
 }
 
@@ -140,12 +141,29 @@ form {
     align-items: normal;
 }
 
+.formGroup {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+}
 
+.formGroup label {
+    padding-right: 10px;
+}
 
 label {
     display: block;
     margin-bottom: 10px;
     font-weight: normal;
+}
+
+.success {
+    color: green;
+}
+
+.error {
+    color: red;
 }
 
 input[type="text"],
@@ -161,7 +179,7 @@ input[type="password"] {
 }
 
 input[type="submit"] {
-    background-color: #428bca;
+    background-color: #13778e;
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -171,7 +189,7 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-    background-color: #3071a9;
+    background-color: cadetblue;
 }
 
 /* Page styles */

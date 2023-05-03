@@ -49,41 +49,50 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
 
         $dbpwd = $row['pwd'];
 
-        //verify password
-        if (password_verify($pwd, $dbpwd)) {
-            //hide form
-            $showform = 0;
-            $_SESSION['ID'] = $row['ID'];
-            $_SESSION['fname'] = $row['fname'];
-            $_SESSION['lname'] = $row['lname'];
-            $_SESSION['eml'] = $row['eml'];
-            $_SESSION['pwd'] = $row['pwd'];
-            $_SESSION['status'] = $row['status'];
-            //log user in
-            header("Location: confirm.php?state=2");
-
+        if(empty($row)) {
+            echo "<p class='error'>Account not found. Please try again.</p>";
+        } else if ($row['status'] == 0) {
+            echo "<p class='error'>Account has not been verified. Please contact your admin.</p>";
         } else {
-            echo "<p class='error'>Incorrect password. Please try again.</p>";
-        }
 
+            //verify password
+            if (password_verify($pwd, $dbpwd)) {
+                //hide form
+                $showform = 0;
+                $_SESSION['ID'] = $row['ID'];
+                $_SESSION['fname'] = $row['fname'];
+                $_SESSION['lname'] = $row['lname'];
+                $_SESSION['eml'] = $row['eml'];
+                $_SESSION['pwd'] = $row['pwd'];
+                $_SESSION['status'] = $row['status'];
+                //log user in
+                header("Location: confirm.php?state=2");
+
+            } else {
+                echo "<p class='error'>Incorrect password. Please try again.</p>";
+            }
+        }//close else acccount verified
 
     }
 }
 
 if ($showform == 1) {
     ?>
-<div class="columnleft">
+<div class="section">
     <h2>Please enter your email and password to log in. All fields are required.</h2><br>
 
     <form name="login" id="login" method="post" action="<?php echo $currentfile; ?>">
-        <label for="eml">Email</label> <br>
+    <div class="formGroup">
+        <label for="eml">Email: </label> <br>
         <input type="email" name="eml" id="eml" placeholder="Email Address" maxlength="255" value="<?php if (isset($eml)) {echo $eml;}?>">
-        <?php if (!empty($erreml)) {echo "<span class ='error'>$erreml</span>"; } ?>
-        <br><br>
-        <label for="pwd">Password</label> <br>
+    </div>
+        <?php if (!empty($erreml)) {echo "<span class ='error'>$erreml</span>"; } ?> <br>
+
+    <div class="formGroup">
+        <label for="pwd">Password: </label> <br>
         <input type="password" name="pwd" id="pwd" placeholder="Password (8+ characters)" maxlength="255" >
-        <?php if (!empty($errpwd)) {echo "<span class ='error'>$errpwd</span>"; } ?>
-        <br>
+    </div>
+        <?php if (!empty($errpwd)) {echo "<span class ='error'>$errpwd</span>"; } ?> <br>
 
         <br><input type="submit" name="submit" id="submit" value="Log In">
 
