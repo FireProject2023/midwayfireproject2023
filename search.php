@@ -52,7 +52,7 @@ if(!empty($result)) {
         <?php foreach ($result as $row) { ?>
             <tr>
                 <td><?php echo $row['address'];?></td>
-                <td><?php echo $row['buildOwner'];?></td>
+                <td><?php echo $row['buildingOwner'];?></td>
                 <td><?php echo $row['busOwner'];?></td>
                 <td><a href="viewaddress.php?q=<?php echo $row['id'];?>">Address Info</a> <a href="viewinspect.php?q=<?php echo $row['id'];?>">Past Inspections</a></td>
             </tr>
