@@ -4,6 +4,7 @@ $pagename = "Form Start";
 require_once "header.php";
 $currentfile = "formstart.php";
 
+//Check that user is logged in.
 checkLogin();
 
 //form processing
@@ -21,7 +22,7 @@ if(isset($_GET['submit'])) {
         $stmt->execute();
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        //no results
+        //no results found
         if(empty($result)) {
             echo "<p class='error'>Nothing found matching " . htmlspecialchars($_GET['term']) . ". Please try again or <a href='addaddress.php'>add new address</a></p>";
         }//if result empty
