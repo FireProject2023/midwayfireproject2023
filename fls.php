@@ -6,7 +6,10 @@ $currentfile = "fls.php";
 //check if user is logged in
 checkLogin();
 
-$idAddress = 1;
+if ($_SERVER['REQUEST_METHOD'] == "GET") {
+    $_SESSION['idAddress'] = $_GET['q'];
+}
+
 $signature = "";
 
 //initial variables
@@ -22,6 +25,7 @@ $errInspect = "";
 $errRepresent = "";
 $errFollowUp = "";
 $errDate = "";
+$idAddress = $_SESSION['idAddress'];
 
 //form processing
 if ($_SERVER['REQUEST_METHOD'] == "POST") {

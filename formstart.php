@@ -15,7 +15,7 @@ if(isset($_GET['submit'])) {
         //local variable & sanitization
         $term = trim($_GET['term']) . "%";
         //query database
-        $sql = "SELECT id, address, buildOwner, busOwner FROM address WHERE address LIKE :term OR buildOwner LIKE :term OR busOwner LIKE :term";
+        $sql = "SELECT id, address, buildingOwner, busOwner FROM address WHERE address LIKE :term OR buildingOwner LIKE :term OR busOwner LIKE :term";
         $stmt = $pdo->prepare($sql);
         $stmt->bindValue(':term', $term);
         $stmt->execute();

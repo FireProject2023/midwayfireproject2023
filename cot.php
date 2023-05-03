@@ -166,10 +166,10 @@ if ($showform == 1) {
 
 
     <label for="inspector">Inspector: </label>
-    <input type="text" id="inspector" name="inspector" value="<?php if (isset($inspector)) {echo htmlspecialchars($inspector, ENT_QUOTES, "UTF-8");}?>> <br>
+    <input type="text" id="inspector" name="inspector" value="<?php if (isset($inspector)) {echo htmlspecialchars($inspector, ENT_QUOTES, "UTF-8");}?>">
     <?php if (!empty($errInspector)) {echo "<span class ='error'>$errInspector</span>"; } ?>
     <label for="busRep">Business Representative: </label>
-    <input type="text" id="busRep" name="busRep" value="<?php if (isset($busRep)) {echo htmlspecialchars($busRep, ENT_QUOTES, "UTF-8");}?>>
+    <input type="text" id="busRep" name="busRep" value="<?php if (isset($busRep)) {echo htmlspecialchars($busRep, ENT_QUOTES, "UTF-8");}?>">
     <?php if (!empty($errBusRep)) {echo "<span class ='error'>$errBusRep</span>"; } ?>
     <br><br>
     <label for="signature-pad">Business Representative Signature: </label>
