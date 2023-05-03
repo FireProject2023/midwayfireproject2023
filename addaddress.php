@@ -13,6 +13,8 @@ $errAddress = "";
 $errOwner = "";
 $errPhone = "";
 $errEmail = "";
+$errBuildOwner = "";
+
 
 //form processing
 if ($_SERVER['REQUEST_METHOD'] == "POST") {

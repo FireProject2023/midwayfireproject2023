@@ -6,6 +6,8 @@ $currentfile = "address.php";
 //check if user is logged in
 checkLogin();
 
+$_SESSION[ 'referAddress' ] = TRUE;
+
 //form processing
 if(isset($_GET['submit'])) {
     //if search box was left empty
