@@ -201,40 +201,48 @@ if ($showform == 1) { ?>
     <table id="accessEgress">
         <tr>
             <td id="yesNo">
+                <div class="formGroup">
                 <input type="radio" id="yes1" name="exit1" value="yes" <?php if(isset($_POST['exit1']) && $_POST['exit1'] =='yes' ){echo "checked";}?> >
-                <label for="yes1">Y</label>
+                    <label for="yes1">Y</label></div>
+                <div class="formGroup">
                 <input type="radio" id="no1" name="exit1" value="no" <?php if(isset($_POST['exit1']) && $_POST['exit1'] =='no' ){echo "checked";}?> >
-                <label for="no1">N</label>
+                <label for="no1">N</label></div>
             </td>
             <td id="category"><p>All exit doors shall operate properly when building is occupied.</p></td>
         </tr>
 
         <tr>
             <td id="yesNo">
+                <div class="formGroup">
                 <input type="radio" id="yes2" name="exit2" value="yes" <?php if(isset($_POST['exit2']) && $_POST['exit2'] =='yes' ){echo "checked";}?> >
-                <label for="yes2">Y</label>
+                    <label for="yes2">Y</label></div>
+                <div class="formGroup">
                 <input type="radio" id="no2" name="exit2" value="no" <?php if(isset($_POST['exit2']) && $_POST['exit2'] =='no' ){echo "checked";}?> >
-                <label for="no2">N</label>
+                    <label for="no2">N</label></div>
             </td>
             <td id="category"><p>All designated exit isles, exit doors, and exit discharges shall remain free of obstruction at all times</p></td>
         </tr>
 
         <tr>
             <td id="yesNo">
+                <div class="formGroup">
                 <input type="radio" id="yes3" name="exit3" value="yes" <?php if(isset($_POST['exit3']) && $_POST['exit3'] =='yes' ){echo "checked";}?> >
-                <label for="yes3">Y</label>
+                    <label for="yes3">Y</label></div>
+                <div class="formGroup">
                 <input type="radio" id="no3" name="exit3" value="no" <?php if(isset($_POST['exit3']) && $_POST['exit3'] =='no' ){echo "checked";}?> >
-                <label for="no3">N</label>
+                    <label for="no3">N</label></div>
             </td>
             <td id="category"><p>All required exit signs shall be properly maintained.</p></td>
         </tr>
 
         <tr>
             <td id="yesNo">
+                <div class="formGroup">
                 <input type="radio" id="yes4" name="exit4" value="yes" <?php if(isset($_POST['exit4']) && $_POST['exit4'] =='yes' ){echo "checked";}?> >
-                <label for="yes4">Y</label>
+                    <label for="yes4">Y</label></div>
+                <div class="formGroup">
                 <input type="radio" id="no4" name="exit4" value="no" <?php if(isset($_POST['exit4']) && $_POST['exit4'] =='no' ){echo "checked";}?> >
-                <label for="no4">N</label>
+                    <label for="no4">N</label></div>
             </td>
             <td id="category"><p>All required emergency lights shall be properly maintained</p></td>
         </tr>
@@ -248,40 +256,48 @@ if ($showform == 1) { ?>
     <table id="electricComp">
         <tr>
             <td id="yesNo">
+                <div class="formGroup">
                 <input type="radio" id="yes5" name="elec1" value="yes" <?php if(isset($_POST['elec1']) && $_POST['elec1'] =='yes' ){echo "checked";}?> >
-                <label for="yes5">Y</label>
+                    <label for="yes5">Y</label></div>
+                <div class="formGroup">
                 <input type="radio" id="no5" name="elec1" value="no" <?php if(isset($_POST['elec1']) && $_POST['elec1'] =='no' ){echo "checked";}?> >
-                <label for="no5">N</label>
+                    <label for="no5">N</label></div>
             </td>
             <td id="category"><p>36in front and 30in side clearance maintained for: Electric Panels, Water Heaters, HVAC Equipment, & Cooking Equipment</p></td>
         </tr>
 
         <tr>
             <td id="yesNo">
+                <div class="formGroup">
                 <input type="radio" id="yes6" name="elec2" value="yes" <?php if(isset($_POST['elec2']) && $_POST['elec2'] =='yes' ){echo "checked";}?> >
-                <label for="yes6">Y</label>
+                    <label for="yes6">Y</label></div>
+                <div class="formGroup">
                 <input type="radio" id="no6" name="elec2" value="no" <?php if(isset($_POST['elec2']) && $_POST['elec2'] =='no' ){echo "checked";}?> >
-                <label for="no6">N</label>
+                    <label for="no6">N</label></div>
             </td>
             <td id="category"><p> Extension cords shall not be plugged into appliances, utilized as permanent wiring, or extended through ceilings, walls, or doorway</p></td>
         </tr>
 
         <tr>
             <td id="yesNo">
+                <div class="formGroup">
                 <input type="radio" id="yes7" name="elec3" value="yes" <?php if(isset($_POST['elec3']) && $_POST['elec3'] =='yes' ){echo "checked";}?> >
-                <label for="yes7">Y</label>
+                    <label for="yes7">Y</label></div>
+                <div class="formGroup">
                 <input type="radio" id="no7" name="elec3" value="no" <?php if(isset($_POST['elec3']) && $_POST['elec3'] =='no' ){echo "checked";}?> >
-                <label for="no7">N</label>
+                    <label for="no7">N</label></div>
             </td>
             <td id="category"><p> Power strips shall be FM or UL Listed, and have built-in surge protection</p></td>
         </tr>
 
         <tr>
             <td id="yesNo">
+                <div class="formGroup">
                 <input type="radio" id="yes8" name="elec4" value="yes" <?php if(isset($_POST['elec4']) && $_POST['elec4'] =='yes' ){echo "checked";}?> >
-                <label for="yes8">Y</label>
+                    <label for="yes8">Y</label></div>
+                <div class="formGroup">
                 <input type="radio" id="no8" name="elec4" value="no" <?php if(isset($_POST['elec4']) && $_POST['elec4'] =='no' ){echo "checked";}?> >
-                <label for="no8">N</label>
+                    <label for="no8">N</label></div>
             </td>
             <td id="category"><p> All electrical wall plugs, switch plates, and junction boxes shall be properly covered</p></td>
         </tr>
@@ -295,69 +311,83 @@ if ($showform == 1) { ?>
     <table id="miscFPS">
         <tr>
             <td id="yesNo">
+                <div class="formGroup">
                 <input type="radio" id="yes9" name="misc1" value="yes" <?php if(isset($_POST['misc1']) && $_POST['misc1'] =='yes' ){echo "checked";}?> >
-                <label for="yes9">Y</label>
+                    <label for="yes9">Y</label></div>
+                <div class="formGroup">
                 <input type="radio" id="no9" name="misc1" value="no" <?php if(isset($_POST['misc1']) && $_POST['misc1'] =='no' ){echo "checked";}?> >
-                <label for="no9">N</label>
+                    <label for="no9">N</label></div>
             </td>
             <td id="category"><p>Center room storage clearance shall be 18in from the bottom of sprinkler heads or 24in below ceiling in non-sprinkler buildings</p></td>
         </tr>
 
         <tr>
             <td id="yesNo">
+                <div class="formGroup">
                 <input type="radio" id="yes10" name="misc2" value="yes" <?php if(isset($_POST['misc2']) && $_POST['misc2'] =='yes' ){echo "checked";}?>  >
-                <label for="yes10">Y</label>
+                    <label for="yes10">Y</label></div>
+                <div class="formGroup">
                 <input type="radio" id="no10" name="misc2" value="no" <?php if(isset($_POST['misc2']) && $_POST['misc2'] =='no' ){echo "checked";}?> >
-                <label for="no10">N</label>
+                    <label for="no10">N</label></div>
             </td>
             <td id="category"><p>Interior and exterior of structure is free of clutter, boxes, paper, & trash</p></td>
         </tr>
 
         <tr>
             <td id="yesNo">
+                <div class="formGroup">
                 <input type="radio" id="yes11" name="misc3" value="yes" <?php if(isset($_POST['misc3']) && $_POST['misc3'] =='yes' ){echo "checked";}?> >
-                <label for="yes11">Y</label>
+                    <label for="yes11">Y</label></div>
+                <div class="formGroup">
                 <input type="radio" id="no11" name="misc3" value="no" <?php if(isset($_POST['misc3']) && $_POST['misc3'] =='no' ){echo "checked";}?> >
-                <label for="no11">N</label>
+                    <label for="no11">N</label></div>
             </td>
             <td id="category"><p>Fueled equipment and fuel storage containers are not stored inside of the occupancy</p></td>
         </tr>
 
         <tr>
             <td id="yesNo">
+                <div class="formGroup">
                 <input type="radio" id="yes12" name="misc4" value="yes" <?php if(isset($_POST['misc4']) && $_POST['misc4'] =='yes' ){echo "checked";}?> >
-                <label for="yes12">Y</label>
+                    <label for="yes12">Y</label></div>
+                <div class="formGroup">
                 <input type="radio" id="no12" name="misc4" value="no" <?php if(isset($_POST['misc4']) && $_POST['misc4'] =='no' ){echo "checked";}?> >
-                <label for="no12">N</label>
+                    <label for="no12">N</label></div>
             </td>
             <td id="category"><p>Knox boxes in occupancies are in proper working order, and all building keys are clearly marked with key tags</p></td>
         </tr>
 
         <tr>
             <td id="yesNo">
+                <div class="formGroup">
                 <input type="radio" id="yes13" name="misc5" value="yes" <?php if(isset($_POST['misc5']) && $_POST['misc5'] =='yes' ){echo "checked";}?> >
-                <label for="yes13">Y</label>
+                    <label for="yes13">Y</label></div>
+                <div class="formGroup">
                 <input type="radio" id="no13" name="misc5" value="no" <?php if(isset($_POST['misc5']) && $_POST['misc5'] =='no' ){echo "checked";}?> >
-                <label for="no13">N</label>
+                    <label for="no13">N</label></div>
             </td>
             <td id="category"><p>Business address is displayed on the front of the building and rear door</p></td>
         </tr>
 
         <tr>
             <td id="yesNo">
+                <div class="formGroup">
                 <input type="radio" id="yes14" name="misc6" value="yes" <?php if(isset($_POST['misc6']) && $_POST['misc6'] =='yes' ){echo "checked";}?> >
-                <label for="yes14">Y</label>
+                    <label for="yes14">Y</label></div>
+                <div class="formGroup">
                 <input type="radio" id="no14" name="misc6" value="no" <?php if(isset($_POST['misc6']) && $_POST['misc6'] =='no' ){echo "checked";}?> >
-                <label for="no14">N</label>
+                    <label for="no14">N</label></div>
             </td>
             <td id="category"><p>Specialty rooms are properly labeled (Alarm System, Sprinkler Riser Room, Electrical Room, Pool Chemicals, and Elevator Controls)</p></td>
         </tr>
         <tr>
             <td id="yesNo">
+                <div class="formGroup">
                 <input type="radio" id="yes15" name="misc7" value="yes" <?php if(isset($_POST['misc7']) && $_POST['misc7'] =='yes' ){echo "checked";}?> >
-                <label for="yes15">Y</label>
+                    <label for="yes15">Y</label></div>
+                <div class="formGroup">
                 <input type="radio" id="no15" name="misc7" value="no" <?php if(isset($_POST['misc7']) && $_POST['misc7'] =='no' ){echo "checked";}?> >
-                <label for="no15">N</label>
+                    <label for="no15">N</label></div>
             </td>
             <td id="category"><p>All compressed gas cylinders are secured</p></td>
         </tr>
@@ -371,80 +401,96 @@ if ($showform == 1) { ?>
     <table id="miscFPS">
         <tr>
             <td id="yesNo">
+                <div class="formGroup">
                 <input type="radio" id="yes16" name="fpse1" value="yes" <?php if(isset($_POST['fpse1']) && $_POST['fpse1'] =='yes' ){echo "checked";}?> >
-                <label for="yes16">Y</label>
+                    <label for="yes16">Y</label></div>
+                <div class="formGroup">
                 <input type="radio" id="no16" name="fpse1" value="no" <?php if(isset($_POST['fpse1']) && $_POST['fpse1'] =='no' ){echo "checked";}?> >
-                <label for="no16">N</label>
+                    <label for="no16">N</label></div>
             </td>
             <td id="category"><p>Fire extinguisher inspections are current & mounted properly</p></td>
         </tr>
 
         <tr>
             <td id="yesNo">
+                <div class="formGroup">
                 <input type="radio" id="yes17" name="fpse2" value="yes" <?php if(isset($_POST['fpse2']) && $_POST['fpse2'] =='yes' ){echo "checked";}?> >
-                <label for="yes17">Y</label>
+                    <label for="yes17">Y</label></div>
+                <div class="formGroup">
                 <input type="radio" id="no17" name="fpse2" value="no" <?php if(isset($_POST['fpse2']) && $_POST['fpse2'] =='no' ){echo "checked";}?> >
-                <label for="no17">N</label>
+                    <label for="no17">N</label></div>
             </td>
             <td id="category"><p>6 month kitchen hood suppression system inspection is current</p></td>
         </tr>
 
         <tr>
             <td id="yesNo">
+                <div class="formGroup">
                 <input type="radio" id="yes18" name="fpse3" value="yes" <?php if(isset($_POST['fpse3']) && $_POST['fpse3'] =='yes' ){echo "checked";}?> >
-                <label for="yes18">Y</label>
+                    <label for="yes18">Y</label></div>
+                <div class="formGroup">
                 <input type="radio" id="no18" name="fpse3" value="no" <?php if(isset($_POST['fpse3']) && $_POST['fpse3'] =='no' ){echo "checked";}?> >
-                <label for="no18">N</label>
+                    <label for="no18">N</label></div>
             </td>
             <td id="category"><p>Yearly fire sprinkler system inspection is current</p></td>
         </tr>
 
         <tr>
             <td id="yesNo">
+                <div class="formGroup">
                 <input type="radio" id="yes19" name="fpse4" value="yes" <?php if(isset($_POST['fpse4']) && $_POST['fpse4'] =='yes' ){echo "checked";}?> >
-                <label for="yes19">Y</label>
+                    <label for="yes19">Y</label></div>
+                <div class="formGroup">
                 <input type="radio" id="no19" name="fpse4" value="no" <?php if(isset($_POST['fpse4']) && $_POST['fpse4'] =='no' ){echo "checked";}?> >
-                <label for="no19">N</label>
+                    <label for="no19">N</label></div>
             </td>
             <td id="category"><p>Yearly fire alarm system is current</p></td>
         </tr>
 
         <tr>
             <td id="yesNo">
+                <div class="formGroup">
                 <input type="radio" id="yes20" name="fpse5" value="yes" <?php if(isset($_POST['fpse5']) && $_POST['fpse5'] =='yes' ){echo "checked";}?> >
-                <label for="yes20">Y</label>
+                    <label for="yes20">Y</label></div>
+                <div class="formGroup">
                 <input type="radio" id="no20" name="fpse5" value="no" <?php if(isset($_POST['fpse5']) && $_POST['fpse5'] =='no' ){echo "checked";}?> >
-                <label for="no20">N</label>
+                    <label for="no20">N</label></div>
             </td>
             <td id="category"><p>Maintain a 3-foot clearance in all directions around all fire protection equipment, system connection, and fire hydrants on site</p></td>
         </tr>
 
         <tr>
             <td id="yesNo">
+                <div class="formGroup">
                 <input type="radio" id="yes21" name="fpse6" value="yes" <?php if(isset($_POST['fpse6']) && $_POST['fpse6'] =='yes' ){echo "checked";}?> >
-                <label for="yes21">Y</label>
+                    <label for="yes21">Y</label></div>
+                <div class="formGroup">
                 <input type="radio" id="no21" name="fpse6" value="no" <?php if(isset($_POST['fpse6']) && $_POST['fpse6'] =='no' ){echo "checked";}?> >
-                <label for="no21">N</label>
+                    <label for="no21">N</label></div>
             </td>
             <td id="category"><p>Kitchen hood ventilation system is clean and operational</p></td>
         </tr>
 
         <tr>
             <td id="yesNo">
+                <div class="formGroup">
                 <input type="radio" id="yes22" name="fpse7" value="yes" <?php if(isset($_POST['fpse7']) && $_POST['fpse7'] =='yes' ){echo "checked";}?> >
-                <label for="yes22">Y</label>
+                    <label for="yes22">Y</label></div>
+                <div class="formGroup">
                 <input type="radio" id="no22" name="fpse7" value="no" <?php if(isset($_POST['fpse7']) && $_POST['fpse7'] =='no' ){echo "checked";}?> >
-                <label for="no22">N</label>
+                    <label for="no22">N</label></div>
             </td>
             <td id="category"><p>Yearly fire standpipe system inspection is current</p></td>
         </tr>
 
         <tr>
             <td id="yesNo">
+                <div class="formGroup">
                 <input type="radio" id="yes23" name="fpse8" value="yes" <?php if(isset($_POST['fpse8']) && $_POST['fpse8'] =='yes' ){echo "checked";}?> >
-                <label for="yes23">Y</label>
+                    <label for="yes23">Y</label></div>
+                <div class="formGroup">
                 <input type="radio" id="no23" name="fpse8" value="no" <?php if(isset($_POST['fpse8']) && $_POST['fpse8'] =='no' ){echo "checked";}?> >
-                <label for="no23">N</label>
+                    <label for="no23">N</label></div>
             </td>
             <td id="category"><p>All system inspection reports are available on site</p></td>
         </tr>
@@ -455,18 +501,27 @@ if ($showform == 1) { ?>
     <textarea id="fpseComments" name="fpseComments" rows="5"><?php if (isset($fpseComments)) {echo $fpseComments;}?></textarea>
 
     <h3>SMOKE ALARM & RESIDENTIAL OCCUPANCY INSPECTIONS</h3>
+    <div class="formGroup">
     <label for="numAlarm">Number of operating smoke alarms: </label>
     <input type="number" id="numAlarm" name="smokeNum" min="0" max="50" value="<?php if (isset($smokeNum)) {echo htmlspecialchars($smokeNum, ENT_QUOTES, "UTF-8");}?>"> <br>
-    <h3>Number of smoke alarms ... </h3>
+    </div>
+
+        <h3>Number of smoke alarms ... </h3>
+    <div class="formGroup">
     <label for="numMissing">Missing: </label>
     <input type="number" id="numMissing" name="smokeMiss" min="0" max="50" value="<?php if (isset($smokeMiss)) {echo htmlspecialchars($smokeMiss, ENT_QUOTES, "UTF-8");}?>">
-    <label for="numMissingBattery">Missing Battery: </label>
+    </div>
+    <div class="formGroup">
+        <label for="numMissingBattery">Missing Battery: </label>
     <input type="number" id="numMissingBattery" name="smokeOld" min="0" max="50" value="<?php if (isset($smokeOld)) {echo htmlspecialchars($smokeOld, ENT_QUOTES, "UTF-8");}?>">
-    <label for="numDisconnect">10-year smoke alarms: </label>
+    </div>
+    <div class="formGroup">
+        <label for="numDisconnect">10-year smoke alarms: </label>
     <input type="number" id="numDisconnect" name="smokeDisc" min="0" max="50" value="<?php if (isset($smokeDisc)) {echo htmlspecialchars($smokeDisc, ENT_QUOTES, "UTF-8");}?>">
-    <label for="num10">Disconnected smoke alarms: </label>
+    </div><div class="formGroup">
+        <label for="num10">Disconnected smoke alarms: </label>
     <input type="number" id="num10" name="num10" min="0" max="50">
-
+    </div>
     <br><br>
 
     <table>

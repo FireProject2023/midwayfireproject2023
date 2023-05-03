@@ -152,10 +152,12 @@ form {
     padding-right: 10px;
 }
 
+
 label {
     display: block;
     margin-bottom: 10px;
     font-weight: normal;
+    margin-left: 10px;
 }
 
 .success {
@@ -172,7 +174,8 @@ input[type="password"] {
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
-    font-size: 16px;
+    margin-left: 10px;
+    font-size: 14px;
     border: 1px solid #ddd;
     border-radius: 4px;
     box-sizing: border-box;
@@ -296,13 +299,6 @@ textarea {
 
 #members tr:hover {
     background-color: #ddd;
-}
-
-.columnleft,
-.columnright {
-    float: left;
-    width: 49%;
-    margin: 1%;
 }
 
 .section {
