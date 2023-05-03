@@ -23,7 +23,7 @@ if(isset($_GET['submit'])) {
 
         //no results
         if(empty($result)) {
-            echo "<p class='error'>Nothing found matching " . htmlspecialchars($_GET['term']) . ". Please try again.</p>";
+            echo "<p class='error'>Nothing found matching " . htmlspecialchars($_GET['term']) . ". Please try again or <a href='addaddress.php'>add new address</a></p>";
         }//if result empty
     }//if term empty
 }//close submit
@@ -52,13 +52,12 @@ if(!empty($result)) {
         <?php foreach ($result as $row) { ?>
             <tr>
                 <td><?php echo $row['address'];?></td>
-                <td><?php echo $row['buildOwner'];?></td>
+                <td><?php echo $row['buildingOwner'];?></td>
                 <td><?php echo $row['busOwner'];?></td>
                 <td><a href="cot.php?q=<?php echo $row['id'];?>">Change of Tenant</a> <a href="fls.php?q=<?php echo $row['id'];?>">Fire & Life Safety</a></td>
             </tr>
         <?php }//close foreach ?>
     </table>
-    <a href="view.php?q=<?php echo $row['id'];?>">View Reviews</a>
     <?php
 }//foreach
 echo "<br>";
