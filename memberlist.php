@@ -3,6 +3,10 @@ $pagename = "Manage Employees";
 require_once "header.php";
 $currentfile = "memberlist.php";
 
+checkLogin();
+
+$_SESSION[ 'referMember' ] = TRUE;
+
 if ($_SERVER['REQUEST_METHOD'] == "POST"){
     $approve = $_POST['approve'];
     if ($approve==1) {
@@ -70,9 +74,9 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <td><?php echo $row['fname'] . " "; echo $row['lname'];?></td>
                 <td><?php echo $row['eml'];?></td>
                 <td>
-                    <?php if ($_SESSION['ID'] == $row['id'] || $_SESSION['status'] == 2) {?>
-                        <a href="update.php?q=<?php echo $row['id'];?>">Update</a><br>
-                        <a href="changepwd.php?q=<?php echo $row['id'];?>">Change Password</a>
+                    <?php if ($_SESSION['ID'] == $row['ID'] || $_SESSION['status'] == 2) {?>
+                        <a href="update.php?q=<?php echo $row['ID'];?>">Update</a><br>
+                        <a href="changepwd.php?q=<?php echo $row['ID'];?>">Change Password</a>
                     <?php } ?>
                 </td>
                 <td>

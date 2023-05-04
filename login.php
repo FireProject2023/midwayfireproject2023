@@ -79,7 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
 if ($showform == 1) {
     ?>
 <div class="section">
-    <h2>Please enter your email and password to log in. All fields are required.</h2><br>
+    <h3>Please enter your email and password to log in. All fields are required.</h3><br>
 
     <form name="login" id="login" method="post" action="<?php echo $currentfile; ?>">
     <div class="formGroup">

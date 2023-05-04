@@ -4,42 +4,41 @@ $pagename = "Member Update";
 require_once "header.php";
 $currentfile = "update.php";
 
-//check where user came from
-if (isset($_SERVER['HTTP_REFERER'])) {
-    $refer = basename($_SERVER['HTTP_REFERER']);
+checkLogin();
+
+//check if user came from address page
+if ((isset($_SESSION['referMember']) && $_SESSION['referMember']===TRUE )) {
+    $refer=1;
 } else {
-    $refer ="";
+    $refer="";
 }
 
 //get id
-if ($_SERVER['REQUEST_METHOD'] == "GET" && isset($_GET['q'])){
-    $ID = $_GET['q'];
-} else if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['ID'])) {
-    $ID = $_POST['ID'];
-    $refer = "list.php";
-} else {
-    echo "<p class='error'>An error occurred. Please navigate back to the home page and try again.</p>";
-    $errexists = 1;
+if ($_SERVER['REQUEST_METHOD'] == "GET") {
+    $_SESSION['idMember'] = $_GET['q'];
 }
 
 //make sure user came from the Member List
-if ($refer != "list.php")  {
+if ($refer != 1)  {
     echo "<p class='error'>You cannot access this page directly.</p>";
     ?>
     <a href="memberlist.php">Return to Member List</a>
     <?php
 } else {
 
+
     //initial variables
     $showform = 1;
     $errexists = 0;
     $erreml = "";
     $errfname = "";
+    $ID = $_SESSION['idMember'];
 
     //form processing
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
         //local variables & sanitization
         $fname = trim($_POST['fname']);
+        $lname = trim($_POST['lname']);
         $eml = trim(strtolower($_POST['eml']));
 
         //error checking
@@ -75,11 +74,11 @@ if ($refer != "list.php")  {
             $updated = date("Y-m-d H:i:s");
 
             //update database
-            $sql = "UPDATE signup SET fname = :fname, eml = :eml, updated = :updated WHERE ID = :ID";
+            $sql = "UPDATE signup SET fname = :fname, lname = :lname, eml = :eml WHERE ID = :ID";
             $stmt = $pdo->prepare($sql);
             $stmt->bindValue(':fname', $fname);
+            $stmt->bindValue(':lname', $lname);
             $stmt->bindValue(':eml', $eml);
-            $stmt->bindValue(':updated', $updated);
             $stmt->bindValue(':ID', $ID);
             $stmt->execute();
             //Success message
@@ -101,20 +100,29 @@ if ($refer != "list.php")  {
         <p>Please enter your new information, or leave anything you do not want to change the same. All fields are required.</p>
 
         <form name="update" id="update" action="<?php echo $currentfile; ?>" method="post">
-            <label for="fname">New Name:</label>
+            <div class="formGroup">
+            <label for="fname">First Name:</label>
             <input type="text" name="fname" id="fname" placeholder="Preferred Name" maxlength="50" value ="<?php if (isset($fname) && (!empty($fname))) {
                 echo htmlspecialchars($fname, ENT_QUOTES, "UTF-8"); } else { echo htmlspecialchars($row['fname'], ENT_QUOTES, "UTF-8");}?>">
+            </div>
             <?php if (!empty($errfname)) {echo "<span class ='error'>$errfname</span>"; } ?>
-            <br>
-            <br>
-            <label for="eml">New Email:</label>
+
+            <div class="formGroup">
+                <label for="lname">Last Name:</label>
+                <input type="text" name="lname" id="lname" placeholder="Last Name" maxlength="50" value ="<?php if (isset($lname) && (!empty($lname))) {
+                    echo htmlspecialchars($lname, ENT_QUOTES, "UTF-8"); } else { echo htmlspecialchars($row['lname'], ENT_QUOTES, "UTF-8");}?>">
+            </div>
+            <?php if (!empty($errlname)) {echo "<span class ='error'>$errlname</span>"; } ?>
+
+            <div class="formGroup">
+            <label for="eml">Email:</label>
             <input type="email" name="eml" id="eml" placeholder="Email Address" maxlength="255" value ="<?php if (isset($eml) && (!empty($eml))) {
                 echo htmlspecialchars($eml, ENT_QUOTES, "UTF-8"); } else { echo htmlspecialchars($row['eml'], ENT_QUOTES, "UTF-8");}?>">
-            <?php if (!empty($erreml)) {echo "<span class ='error'>$erreml</span>"; } ?>
+            </div>
+                <?php if (!empty($erreml)) {echo "<span class ='error'>$erreml</span>"; } ?>
             <br>
 
             <input type="hidden" name="ID" value="<?php echo $row['ID'];?>">
-            <input type="hidden" name="origname" value="<?php echo $row['fname'];?>">
             <input type="hidden" name="origeml" value="<?php echo $row['eml'];?>">
 
             <br><label for="submit">Submit:</label>
