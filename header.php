@@ -37,6 +37,7 @@ require_once "functions.php";
             <a href='formstart.php'>Forms</a>
             <a href='search.php'>Search</a>
              <a href='address.php'>Manage Addresses</a>
+             <a href='memberlist.php'>Update Profile</a>
 
          <?php //if the user has admin status display the following
             if ($_SESSION['status'] == 2) { ?>
